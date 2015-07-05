@@ -1,58 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="debts">
 
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="scripts/angular.min.js"></script>
+    <script src="app/app.js"></script>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <ul class="main-nav clear-fix">
-                <li><a href="#" class="active">כתובת</a>
-                </li>
-                <li><a href="#">שוק</a>
-                </li>
-                <li><a href="#">אוטובוס</a>
-                </li>
-                <li><a href="#">מכולת</a>
-                </li>
-            </ul>
-        </nav>
+    <header class="page-header">
+       <nav class="main-nav">
+           <ul class="nav-links">
+               <li><a href="#">שוק</a></li>
+               <li><a href="#">אוטובוסים</a></li>
+               <li><a href="#">מכולת</a></li>
+               <li><a href="#">כתובת</a></li>
+           </ul>
+       </nav>        
     </header>
-    
-    <section class="content">
+    <section class="content" ng-controller="firstController">
         <h1>חובות</h1>
-        <h3>(45 ש"ח)</h3>
+        <h3>({{debtsSum()}} ש"ח) </h3>
         
         <section class="debt-list">
             <button class="add-debt"><span class="large-font">+</span>הוסף חוב חדש</button>
-            <table class="debt-table">
-                <tr class="debt-row">
-                    <td>
-                        <input type="checkbox" class="checkbox" name="" id="">
+            <table class="debt-table" >
+                <tr class="debt-row" ng-repeat="debt in model.items">
+                    <td class="details">
+                        <div class="own-to">{{debt.name}} <span class="info">({{debt.info}})</span></div>
+
+                        <div class="debt-date">{{debt.date}}</div>
                     </td>
-                    <td>
-                        <div class="info">אנה כהן 12.05.2015</div>
-                        <div class="amount">30 ש"ח</div>
-                    </td>
-                    <td><a class="edit-debt" href="#">עריכה</a></td>
-                </tr>
-                <tr class="debt-row">
-                    <td><input type="checkbox" class="checkbox" name="" id=""></td>
-                    <td>
-                        <div class="info">דני גבאי 10.05.2015 קפה ומאפה בקפיטריה</div>
-                        <div class="amount">15 ש"ח</div>
-                    </td>
-                    <td class="edit-debt"><a href="#">עריכה</a></td>
+                    <td class="amount">{{debt.debt}} ש"ח</td>
                 </tr>
             </table>
         </section>
     </section>
-    
 </body>
-
 </html>
