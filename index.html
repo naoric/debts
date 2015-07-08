@@ -7,27 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alef:400,700' rel='stylesheet' type='text/css'>
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/slider.css" rel="stylesheet" />
     <script src="scripts/angular.min.js"></script>
     <script src="app/app.js"></script>
 </head>
 <body>
     <header class="page-header">
-       <nav class="main-nav">
-           <ul class="nav-links">
-               <li><a href="#">שוק</a></li>
-               <li><a href="#">אוטובוסים</a></li>
-               <li><a href="#">מכולת</a></li>
-               <li><a href="#">כתובת</a></li>
-           </ul>
-       </nav>        
+        <nav class="main-nav">
+            <ul class="nav-links">
+                <li>
+                    <input type="checkbox" class="togglers" id="market" />
+                    <label for="market">
+                        שוק
+                    </label>
+                    <div class="slider">
+                        <div class="range">
+                            <div class="pointer"></div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="scale-marks">
+                            <ul>
+                                <li><span>0</span></li>
+                                <li><span>1</span></li>
+                                <li><span>2</span></li>
+                                <li><span>3</span></li>
+                                <li><span>4</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <input type="checkbox" class="togglers" id="buses" />
+                    <label for="buses">
+                        אוטובוסים
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" class="togglers" id="shop" />
+                    <label for="shop">
+                        מכולת
+                    </label>
+                </li>
+                <li>
+                    <input type="checkbox" class="togglers" id="address" />
+                    <label for="address">
+                        כתובת
+                    </label>
+                </li>
+            </ul>
+        </nav>
     </header>
     <section class="content" ng-controller="firstController">
         <h1>חובות</h1>
         <h3>({{debtsSum()}} ש"ח) </h3>
-        
+
         <section class="debt-list">
             <button class="add-debt"><span class="large-font">+</span>הוסף חוב חדש</button>
-            <table class="debt-table" >
+            <table class="debt-table">
                 <tr class="debt-row" ng-repeat="debt in model.items">
                     <td class="details">
                         <div class="own-to">{{debt.name}} <span class="info">({{debt.info}})</span></div>

@@ -23,17 +23,21 @@ html, body {
     background-color: #CACACA;
 }
 
-
-.page-header a:link, .page-header a:visited {
+.page-header label{
     color: #996633;
     text-decoration: none;
     display: block;
-    width: 100%;
+    width: calc(70% - 2px);
     height: 100%;
     border: solid 1px blue;
     border-collapse: collapse;
     vertical-align: middle;
     padding: 30px 15%;
+}
+
+:checked ~ label {
+    color: white;
+    background-color: #CC9966;
 }
 
 .page-header li::before {
@@ -140,4 +144,9 @@ h3 {
 .details {
     width: 75%;
     padding: 10px 5%;
+}
+
+.togglers {
+    position: absolute;
+    right: -9999px;
 }
